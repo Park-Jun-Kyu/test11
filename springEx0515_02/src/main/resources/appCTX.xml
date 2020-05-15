@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+
+			<bean id="member1" class="com.javalec.ex.Member">
+				<constructor-arg value="1001"/>
+				<constructor-arg value="라팡"/>
+				<constructor-arg value="30"/>
+				<constructor-arg value="010-1234-1234"/>
+				<constructor-arg value="지구"/>
+				<constructor-arg value="없어"/>
+			
+			</bean>
+			
+			<bean id="member2" class="com.javalec.ex.Member">
+				<constructor-arg value="1002"/>
+				<constructor-arg value="듀스"/>
+				<constructor-arg value="33"/>
+				<constructor-arg value="010-4545-4545"/>
+				<constructor-arg value="김해"/>
+				<constructor-arg value="매년암걸림"/>
+			
+			</bean>
+			
+			<bean id="member3" class="com.javalec.ex.Member">
+				<constructor-arg value="1003"/>
+				<constructor-arg value="렝가"/>
+				<constructor-arg value="33"/>
+				<constructor-arg value="010-6767-6767"/>
+				<constructor-arg value="대전"/>
+				<constructor-arg value="멀쩡함"/>
+			
+			</bean>
+			
+			
+			
+			<bean id="medical_record1" class="com.javalec.ex.Medical_record">
+				<constructor-arg value = "1001"/>
+				<constructor-arg value = "2020/05/14"/>
+				<constructor-arg value = "센세"/>
+				<constructor-arg value = "메가"/>
+				<constructor-arg value = "콜록콜록"/>
+				<constructor-arg value = "미정"/>
+			
+			</bean>
+			
+			<bean id="medical_record2" class="com.javalec.ex.Medical_record">
+				<constructor-arg value = "1001"/>
+				<constructor-arg value = "2020/01/01"/>
+				<constructor-arg value = "넬기"/>
+				<constructor-arg value = "발하"/>
+				<constructor-arg value = "다리부러짐"/>
+				<constructor-arg value = "몰라"/>
+			
+			</bean>
+			
+			<bean id="medical_record3" class="com.javalec.ex.Medical_record">
+				<constructor-arg value = "1003"/>
+				<constructor-arg value = "2020/03/15"/>
+				<constructor-arg value = "테오"/>
+				<constructor-arg value = "네로"/>
+				<constructor-arg value = "팔뿌러짐"/>
+				<constructor-arg value = "모른다니깐"/>
+			
+			</bean>
+			
+			
+			
+			<bean id="member_all" class="com.javalec.ex.Member_all">
+				<property name="list">
+					<list>
+						<ref bean="member1"/>
+						<ref bean="member2"/>
+						<ref bean="member3"/>
+					</list>
+				</property>
+			</bean>
+			
+			
+
+
+
+</beans>
