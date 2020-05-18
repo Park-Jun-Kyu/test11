@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="logAop" class="com.javalec.ex.LogAop"/>
+
+
+<!-- 		proxy(대행) 설정-->
+	<aop:config>
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut id="publicM" expression="within(com.javalec.ex.*)"/>
+<!-- 		expression <- 범위  // * <- 범위내의 모든 클래스--> 
+<!--  com.javalec.ex 어떤 클래스를 호출하던간에 method=loggerAop를 실행해라 -->
+			<aop:around pointcut-ref="publicM" method="loggerAop"/>
+		
+		</aop:aspect>
+	
+	</aop:config>
+	
+	<bean id="student" class="com.javalec.ex.Student">
+		<property name="name" value="홍길동"/>
+		<property name="age" value="20"/>
+		<property name="gradeNum" value="1"/>
+		<property name="classNum" value="1"/>
+	
+	</bean>
+	
+	<bean id="worker" class="com.javalec.ex.Worker">
+		<property name="name" value="김유신"/>
+		<property name="age" value="33"/>
+		<property name="job" value="장군"/>
+	
+	
+	</bean>
+	
+
+
+</beans>

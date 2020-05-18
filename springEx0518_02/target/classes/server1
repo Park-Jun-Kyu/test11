@@ -1,0 +1,3 @@
+auth="Container;
+driverClassName="oracle.jdbc.driver.Oracle
+url="jdbc:oracle:thin@localhst:1521:oracel

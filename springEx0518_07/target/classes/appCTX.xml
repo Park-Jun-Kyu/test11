@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+		<bean id="logaop" class="com.javalec.ex.Logaop"/>
+		
+		
+		<aop:config>
+			<aop:aspect id="logger" ref="logaop">
+				<aop:pointcut id="publicM" expression="within(com.javalec.ex.*)"/>
+				<aop:around pointcut-ref="publicM" method="loggerAop"></aop:around>
+			
+			</aop:aspect>
+		
+		</aop:config>
+		
+		<bean id="studentInfo" class="com.javalec.ex.StudentInfo">
+			<property name="grade" value="1001"/>
+			<property name="name" value="홍길동"/>
+			<property name="subject" value="컴퓨터공학과"/>
+			<property name="address" value="서울"/>
+			<property name="tel" value="010-5522-1820"/>
+		
+		</bean>
+		
+		<bean id="studentScore" class="com.javalec.ex.StudentScore">
+			<constructor-arg value="1001"/>
+			<constructor-arg value="100"/>
+			<constructor-arg value="100"/>
+			<constructor-arg value="100"/>
+
+		</bean>
+
+
+
+</beans>
