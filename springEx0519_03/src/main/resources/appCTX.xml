@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+			<aop:aspectj-autoproxy/>
+			<bean id="logAop" class="com.javalec.ex.LogAop"/>
+		
+
+		<bean id="book" class="com.javalec.ex.Book">
+			<property name="b_num" value="1번"/>
+			<property name="b_name" value="영광"/>
+			<property name="b_kind" value="몰라"/>
+			<property name="b_writer" value="나"/>
+		
+		</bean>
+		
+		<bean id="rental" class="com.javalec.ex.Rental">
+			<property name="r_num" value="2번"/>
+			<property name="r_name" value="김유신"/>
+			<property name="r_book" value="임진왜란"/>
+			<property name="r_return" value="몰름"/>
+			<property name="r_tel" value="010-334-3432"/>
+		
+		</bean>
+		
+
+
+
+
+</beans>

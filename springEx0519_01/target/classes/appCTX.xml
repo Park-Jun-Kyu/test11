@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+
+		<bean id="logAop" class="com.javalec.ex.LogAop"/>
+		
+		
+		
+		<aop:config>
+			<aop:aspect id="aspLog" ref="logAop">
+				<aop:pointcut id="AopExAll" expression="execution(public void event*(..))" />
+				<aop:before pointcut-ref = "AopExAll" method="beforeadvice"/>
+			
+			
+			</aop:aspect>
+		</aop:config>
+		
+		
+		<aop:config>
+			<aop:aspect id="aspLog" ref="logAop">
+				<aop:pointcut id="AopExAll" expression="execution(public void board*(..))"/>
+				<aop:after pointcut-ref = "AopExAll" method="loggerAop"/>
+			
+			
+			</aop:aspect>
+		</aop:config>
+		
+		
+		
+		<aop:config>
+			<aop:aspect id="aspLog" ref="logAop">
+				<aop:pointcut id="AopExAll" expression="execution(public void join*(..))"/>
+				<aop:before pointcut-ref = "AopExAll" method="beforeadvice"/>
+			
+			
+			</aop:aspect>
+		</aop:config>
+
+
+		<bean id="join" class="com.javalec.ex.Join">
+			<property name="mem_num" value="1010"/>
+			<property name="mem_id" value="1011230"/>
+			<property name="mem_pw" value="1234"/>
+			<property name="mem_name" value="4242424"/>
+			<property name="joinDay" value="4343434"/>
+			
+		</bean>
+
+		<bean id="eventBoard" class="com.javalec.ex.EventBoard">
+			<property name="number" value="1020"/>
+			<property name="name" value="홍길동"/>
+			<property name="eventStart" value="1월"/>
+			<property name="eventEnd" value="5월"/>
+		
+		</bean>
+		
+		<bean id="noticeBoard" class="com.javalec.ex.NoticeBoard">
+			<property name="b_num" value="1020"/>
+			<property name="b_title" value="안녕하세요"/>
+			<property name="b_content" value="반갑습니다"/>
+			<property name="b_date" value="11월"/>
+			<property name="b_writer" value="글쓴이"/>
+		</bean>
+		
+
+
+</beans>
